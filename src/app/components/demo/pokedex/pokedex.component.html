@@ -1,0 +1,27 @@
+<nb-layout>
+    <nb-layout-column>
+        <p style="color : red;" *ngIf="errorMessage != null">
+            {{errorMessage}}
+        </p>
+        <nb-card status="success" accent="danger" *ngIf="pokedex != null">
+            <nb-card-header>
+                Pokédex
+            </nb-card-header>
+            <nb-card-body>
+                <nb-list>
+                    <nb-list-item *ngFor="let p of pokedex.results">
+                        <a (click)="onClick(p.url)">{{p.name}}</a>
+                    <!-- <a [routerLink]="['../detail', p.url]"> {{p.name}}</a> -->
+                    </nb-list-item>
+                </nb-list>
+            </nb-card-body>
+            <nb-card-footer>
+                <button [disabled]="!pokedex?.previous" nbButton (click)="clickPrevious()">Précédent</button> &nbsp; 
+                <button [disabled]="!pokedex?.next" nbButton (click)="clickNext()">Suivant</button>
+            </nb-card-footer>
+        </nb-card>
+    </nb-layout-column>
+    <nb-layout-column>
+        <app-pokedetail2 [url]="toUrl"></app-pokedetail2>
+    </nb-layout-column>
+</nb-layout>

@@ -1,0 +1,10 @@
+<nb-card *ngIf="pokemon != null" status="success">
+    <nb-card-header>
+        {{pokemon.name}}
+    </nb-card-header>
+    <nb-card-body>
+        <p>Poids : {{pokemon.weight}}</p>
+        <img height="200" [src]="pokemon.sprites.front_default">
+        <img height="200" [src]="pokemon.sprites.back_default">
+    </nb-card-body>
+</nb-card>
