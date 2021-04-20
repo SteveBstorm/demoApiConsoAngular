@@ -14,6 +14,7 @@ export class Demo2Component implements OnInit {
 
   ngOnInit(): void {
     //localStorage.removeItem('token')
+    this._auth.getLoic()
     this._auth.connect()
     this._auth.getFullMovie().subscribe(
       x => console.log(x), //next <c#> try

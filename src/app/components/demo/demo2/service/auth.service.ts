@@ -76,6 +76,10 @@ export class AuthService {
     }) 
   }
 
+  getLoic()  {
+    this._httpClient.get<any>("http://loicbaudoux.somee.com/api/user").subscribe((values : any) => console.log(values))
+  }
+
   getFullMovie() : Observable<Movie> {
     return this._httpClient.get<Movie>("http://stevebstorm.somee.com/api/movie/1")
     .pipe(
